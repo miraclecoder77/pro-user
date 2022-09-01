@@ -12,14 +12,14 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
-import { HeroPageComponent } from './hero-page/hero-page.component';
+import { HeroPageComponent } from './component/hero-page/hero-page.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroPageComponent
+    HeroPageComponent,
   ],
   imports: [
     BrowserModule,
