@@ -1,16 +1,19 @@
 <div class="layout">
     <div class="form-wrapper">
-        <form >
+        <form [formGroup]="loginForm" >
             <h3>User Login</h3>
             <div class="inputDiv">
-                <label></label>
-                <input type="text">
+                <label>email</label>
+                <input type="text" formControlName="email">
             </div>
             <div class="inputDiv">
-                <label></label>
-                <input type="text">
+                <label>password</label>
+                <input type="text" formControlName="password">
             </div>
             <button (click)="login()">Log In</button>
+            <br>
+            <br>
+            <button (click)="continue()">Continue with google</button>
         </form>
     </div>
 </div> 
