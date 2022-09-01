@@ -17,18 +17,18 @@ export class LogInComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.createForm()
-  }
-  // initialize the form
-  createForm() {
+    //initialize form
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     })
   }
   // login functionality
   login() {
-    // this.AuthService.SignIn()
+    this.AuthService.SignIn(this.loginForm.value.email, this.loginForm.value.password)
+  }
+  continue() {
+    this.AuthService.GoogleAuth()
   }
 
 }
