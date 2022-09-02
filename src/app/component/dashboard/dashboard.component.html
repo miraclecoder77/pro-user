@@ -1,8 +1,9 @@
 <main class="layout">
     <div class="userList-wrapper" >
         <div class="searchDiv">
-            <app-search></app-search>
-        </div>
+            <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
+            <input type="text" [(ngModel)]="searchText" >
+        </div> 
         <div class="data-Container">
             <div class="table-container">
                 <table class="table"  >
@@ -15,15 +16,18 @@
                             <th>Date created</th>
                         </tr>
                     </thead>
-                    <tbody class="table-body" *ngFor="let user of userData">
-                        <tr>
-                            <td>{{user.firstName}} {{user.lastName}}</td>
-                            <td> {{user.email}}</td>
-                            <td>{{user.phoneNumber}}</td>
-                            <td>{{user.userReference}}</td>
-                            <td>{{user.createdOn}}</td>
-                        </tr>
-                    </tbody>
+                    <ng-container *ngFor="let user of users | filter: searchText">
+                        <!-- *ngIf="searchText === '' || user.firstName.match(this.searchText.toLocaleLowerCase() )  " -->
+                        <tbody class="table-body"  >
+                            <tr>
+                                <td>{{user.firstName}} {{user.lastName}}</td>
+                                <td> {{user.email}}</td>
+                                <td>{{user.phoneNumber}}</td>
+                                <td>{{user.userReference}}</td>
+                                <td>{{user.createdOn}}</td>
+                            </tr>
+                        </tbody>
+                    </ng-container>
                 </table>
             </div>
         </div>

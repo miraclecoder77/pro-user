@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  userData: any;   // from api
+  users: any;   // from api
   constructor(
     private api: ApiService,  //injects the api service
     private route: ActivatedRoute  //injects the activated route
@@ -17,15 +17,35 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     //get all users on init
     this.getUsers();
-    console.log(this.userData);
+    // console.log(this.userData);
   }
 
   getUsers() {
     this.api.getUsers()
       .subscribe(res => {
         console.log(res)
-        this.userData = res['data'];
+        this.users = res['data'];
       })
   } 
+
+  searchText: string = '';  //assign value in the search input
+
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
+    // console.log(this.userData.data.email.includes(this.searchText));  
+  }
+
+  search() {
+    if(this.searchText === '') {
+      this.ngOnInit();
+    } else {
+      this.users = this.users.filter(
+        res => {
+          console.log(res.firstName.input.includes(this.searchText))
+          return res.firstName.toLowerCase().indexOf(this.searchText.toLowerCase());
+        }
+      )
+    }
+  }
 
 }

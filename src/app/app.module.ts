@@ -13,6 +13,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { HeroPageComponent } from './component/hero-page/hero-page.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 
 
 
@@ -25,6 +28,7 @@ import { HeroPageComponent } from './component/hero-page/hero-page.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    Ng2SearchPipeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
