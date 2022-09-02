@@ -1,1 +1,31 @@
-<p>dashboard works!</p>
+<main class="layout">
+    <div class="userList-wrapper" >
+        <div class="searchDiv">
+            <app-search></app-search>
+        </div>
+        <div class="data-Container">
+            <div class="table-container">
+                <table class="table"  >
+                    <thead >
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>User Reference</th>
+                            <th>Date created</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body" *ngFor="let user of userData">
+                        <tr>
+                            <td>{{user.firstName}} {{user.lastName}}</td>
+                            <td> {{user.email}}</td>
+                            <td>{{user.phoneNumber}}</td>
+                            <td>{{user.userReference}}</td>
+                            <td>{{user.createdOn}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
