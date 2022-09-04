@@ -1,19 +1,16 @@
 <div class="layout">
-    <div class="form-wrapper">
-        <form [formGroup]="loginForm" >
-            <h3>User Login</h3>
-            <div class="inputDiv">
-                <label>email</label>
-                <input type="text" formControlName="email">
-            </div>
-            <div class="inputDiv">
-                <label>password</label>
-                <input type="text" formControlName="password">
-            </div>
-            <button (click)="login()">Log In</button>
-            <br>
-            <br>
-            <button (click)="continue()">Continue with google</button>
-        </form>
+    <div class="wrapper">
+        <figure>
+            <img src="../../../assets/images/illustration-bg.jpg" class="img-fluid" alt="iillustration">
+        </figure>
+        <div class="sign-in-wrapper">
+            <h2 class="header">
+                Get exclusive access to <br>
+                pro-user
+            </h2>
+            <button (click)="continueWithGoogle()" type="button" class="login-with-google-btn" >
+                Sign in with Google
+            </button>
+        </div>
     </div>
 </div> 
