@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { getAuth } from 'firebase/auth';
 @Injectable({
   providedIn: 'root',
 })
@@ -99,11 +100,14 @@ export class AuthService {
       merge: true,
     });
   }
+  //get current user
+  // user = getAuth().currentUser
+  
   // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['login']);
     });
   }
 }
