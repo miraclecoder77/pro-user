@@ -5,7 +5,12 @@
         <div class="searchDiv">
             <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
             <img src="../../../assets/images/search-icon.png" alt="search icon">
-            <input class="input-wrapper" type="text" [(ngModel)]="searchText" placeholder="search by name">
+            <input class="input-wrapper" (appClickOutside)="toggleDropdown()" type="text" (click)="toggleDropdown()" [(ngModel)]="searchText" placeholder="search by name">
+            <div *ngIf="collapseDropdown"  class="inputDropdown-wrapper">
+                <div class="name-field">
+                    
+                </div>
+            </div>
         </div> 
         <div class="data-Container">
             <div class="table-container">
@@ -13,10 +18,9 @@
                     <thead >
                         <tr>
                             <th>Name</th>
-                            <th class="display">Email</th>
-                            <th class="display">Phone Number</th>
+                            <th>Email</th>
+                            <!-- <th>Phone Number</th> -->
                             <th>User Reference</th>
-                            <!-- <th>Date created</th> -->
                         </tr>
                     </thead>
                     <ng-container *ngFor="let user of users | filter: searchText">
@@ -25,7 +29,6 @@
                             <tr>
                                 <td>{{user.firstName}} {{user.lastName}}</td>
                                 <td class="display"> {{user.email}}</td>
-                                <td class="display">{{user.phoneNumber}}</td>
                                 <td>{{user.userReference}}</td>
                                 <!-- <td>{{user.createdOn}}</td> -->
                             </tr>
@@ -35,18 +38,15 @@
             </div>
         </div>
     </div>
+    <!-- profile avatar and sign out -->
     <div class="profileDiv-wrapper">
         <div class="profileDiv">
-            <img class="user-avatar"  src="../../../assets/images/user.png" alt="user icon">
-            <h3>{{userDisplayName}}</h3>
-
-            <!-- <span>
-                Me 
-                <img src="../../../assets/images/down-arrow.png" alt="caret down">
-            </span> -->
+            <figure class="user-avatar">
+                <img class="img-fluid"  [src]="savedUser.photoURL" alt="user image">
+            </figure>
+            <h3>{{savedUser.displayName}}</h3>
         </div> 
         <button class="signOut-btn "  (click)="signOut()">
-            <!-- <img src="../../../assets/images/exit.png" alt="sign out"> -->
             <span>sign out</span>
         </button>    
     </div>

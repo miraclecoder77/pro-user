@@ -9,22 +9,29 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
+  searchText: string = '';  //assign value in the search input
   users: any;   // from api
+  collapseDropdown: boolean = false;  //show dropdrown
+  savedUser;
   constructor(
     private api: ApiService,  //injects the api service
     private AuthService: AuthService, //injects the auth service
     private route: ActivatedRoute  //injects the activated route
-  ) { }
-
-  searchText: string = '';  //assign value in the search input
+  ) { }  
 
   ngOnInit(): void {
     //get all users on init
     this.getUsers();
-    console.log(this.userDisplayName)
+    // console.log(JSON.parse(this.AuthService.userData));
+    this.getSavedUser()
   }
-  userDisplayName = JSON.parse(localStorage.getItem('user '));
 
+  userDisplayName = JSON.parse(localStorage.getItem('user '));
+  getSavedUser() {
+    this.savedUser = this.AuthService.userData;
+    console.log(this.savedUser);
+  }
   getUsers() {
     this.api.getUsers()
       .subscribe(res => {
@@ -38,7 +45,9 @@ export class DashboardComponent implements OnInit {
   }
 
 
-
+  toggleDropdown() {
+    this.collapseDropdown = !this.collapseDropdown;
+  }
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
     // console.log(this.userData.data.email.includes(this.searchText));  
