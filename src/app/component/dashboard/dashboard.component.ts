@@ -12,8 +12,10 @@ export class DashboardComponent implements OnInit {
 
   searchText: string = '';  //assign value in the search input
   users: any;   // from api
-  collapseDropdown: boolean = false;  //show dropdrown
-  savedUser;
+  savedUser;  
+  config;
+  item;
+
   constructor(
     private api: ApiService,  //injects the api service
     private AuthService: AuthService, //injects the auth service
@@ -23,15 +25,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     //get all users on init
     this.getUsers();
-    // console.log(JSON.parse(this.AuthService.userData));
     this.getSavedUser()
   }
 
-  userDisplayName = JSON.parse(localStorage.getItem('user '));
+  //get the user display details
   getSavedUser() {
     this.savedUser = this.AuthService.userData;
     console.log(this.savedUser);
   }
+  //get users from the api
   getUsers() {
     this.api.getUsers()
       .subscribe(res => {
@@ -39,31 +41,26 @@ export class DashboardComponent implements OnInit {
         this.users = res['data'];
       })
   } 
-
+  // sign out 
   signOut() {
     this.AuthService.SignOut();
   }
 
+  // onSearchTextEntered(searchValue: string) {
+  //   this.searchText = searchValue;  
+  // }
 
-  toggleDropdown() {
-    this.collapseDropdown = !this.collapseDropdown;
-  }
-  onSearchTextEntered(searchValue: string) {
-    this.searchText = searchValue;
-    // console.log(this.userData.data.email.includes(this.searchText));  
-  }
-
-  search() {
-    if(this.searchText === '') {
-      this.ngOnInit();
-    } else {
-      this.users = this.users.filter(
-        res => {
-          console.log(res.firstName.input.includes(this.searchText))
-          return res.firstName.toLowerCase().indexOf(this.searchText.toLowerCase());
-        }
-      )
-    }
-  }
+  // search() {
+  //   if(this.searchText === '') {
+  //     this.ngOnInit();
+  //   } else {
+  //     this.users = this.users.filter(
+  //       res => {
+  //         console.log(res.firstName.input.includes(this.searchText))
+  //         return res.firstName.toLowerCase().indexOf(this.searchText.toLowerCase());
+  //       }
+  //     )
+  //   }
+  // }
 
 }
