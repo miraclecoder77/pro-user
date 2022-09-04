@@ -14,6 +14,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { HeroPageComponent } from './component/hero-page/hero-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AutocompleteModule } from 'ng2-input-autocomplete';
 
 
 
@@ -29,6 +30,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     HttpClientModule,
     Ng2SearchPipeModule,
+    AutocompleteModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,

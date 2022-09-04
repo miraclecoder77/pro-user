@@ -1,17 +1,18 @@
 <main class="layout">
-    <div class="userList-wrapper" >
-
+    <div class="wrapper" >
+        <!-- header -->
         <h1 class="heading">Users Dashboard</h1>
+        <!-- input search field -->
         <div class="searchDiv">
-            <!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search> -->
             <img src="../../../assets/images/search-icon.png" alt="search icon">
-            <input class="input-wrapper" (appClickOutside)="toggleDropdown()" type="text" (click)="toggleDropdown()" [(ngModel)]="searchText" placeholder="search by name">
-            <div *ngIf="collapseDropdown"  class="inputDropdown-wrapper">
-                <div class="name-field">
-                    
-                </div>
-            </div>
+            <input class="input-wrapper" 
+                   type="text" 
+                   [(ngModel)]="searchText" 
+                   placeholder="search by name"
+                   >
+
         </div> 
+        <!-- Table data container -->
         <div class="data-Container">
             <div class="table-container">
                 <table class="table"  >

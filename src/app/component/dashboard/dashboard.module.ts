@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AutocompleteModule } from 'ng2-input-autocomplete';
+
 
 
 
@@ -19,6 +21,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DashboardRoutingModule,
     FormsModule,
     Ng2SearchPipeModule,
+    AutocompleteModule.forRoot(),
   ]
 })
 export class DashboardModule { }
