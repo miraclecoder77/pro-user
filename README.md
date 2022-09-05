@@ -1,7 +1,12 @@
 # What is ProUser
 
 ProUser is web app where you can manage users and get detailed user information 
-sign in, view and manage users details.
+
+## features
+Users can
+
+1. sign in
+2. view and manage users details.
 
 
 ## steps to run this project
