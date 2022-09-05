@@ -1,7 +1,9 @@
+import { tap } from 'rxjs/operators';
 import { AuthService } from './../../shared/services/auth.service';
 import { ApiService } from './../../shared/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -35,8 +37,10 @@ export class DashboardComponent implements OnInit {
   //get users from the api
   getUsers() {
     this.api.getUsers()
+      .pipe(
+        tap(console.log)
+      )
       .subscribe(res => {
-        // console.log(res)
         this.users = res['data'];
       })
   } 
