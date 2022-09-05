@@ -1,7 +1,9 @@
+//primary color
+$primary: cyan;
+
 .layout {
     width: 100%;
     height: 100%;
-    // padding-top: 5%;
     padding: 2.5rem;
 }
 .wrapper {
@@ -15,8 +17,8 @@
     position: absolute;
     box-shadow: 0 0 24px #0000003d;
     border-radius: 0 0 0 2rem;
-    border-bottom: 1px solid cyan;
-    border-left: 1px solid cyan;
+    border-bottom: 1px solid $primary;
+    border-left: 1px solid $primary;
     padding: .5rem 1rem;
     min-width: 20%;
     top: 0;
@@ -55,7 +57,7 @@
 }
 .signOut-btn:hover {
     background: url(../../../assets/images/exit-green.png) no-repeat;
-    color: cyan;
+    color: $primary;
     font-weight: 500;
 }
 
@@ -64,47 +66,21 @@
     font-size: 1.2rem;
     margin-bottom: 1rem;
 }
-//input search field 
-.searchDiv {
-    border: 1px solid cyan;
-    border-radius: .5rem;
-    cursor: text;
-    min-height: 2.7rem;
-    width: 100%;
-    min-width: 20rem;
-    display: flex;
-    margin-bottom: 1rem;
+.search-icon {
     position: relative;
-    img {
-        height: 80%;
-        filter: opacity(.2);
-    }
+    top: 2rem;
+    z-index: 100;
+    left: 9.5rem;
 }
-.input-wrapper {
-    width: 90%;
-    height: 100%;
-    margin: 0 auto;
-    background: inherit;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-}
-
 // table data container
 .table-container {
     min-height: 16.43rem;
     max-height: 70vh;
     width: 100%;
-}
-.table-section {
-    width: 100%;
-    border-collapse: collapse;
-}
-.table .display {
-    display: none;
+    margin-top: 1rem;
 }
 thead th {
-    padding: 10px ;
+    padding: .8rem;
     width: 100%;
     text-align: left;
     background: #f9f9f9;
@@ -115,7 +91,6 @@ thead th {
     z-index: 100;
 }
 .table-body td {
-    width: 100%;
     text-overflow: ellipsis;
     overflow-y: hidden;
     white-space: nowrap;

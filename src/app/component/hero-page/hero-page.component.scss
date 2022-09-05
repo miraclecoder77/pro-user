@@ -1,8 +1,21 @@
+//primary color
+$primary: cyan;
+
 .layout {
     width: 100%;
     height: 100%;
 }
-
+// button
+.btn {
+    background: $primary;
+    border: none;
+    border-radius: .25rem;
+    outline: none;
+    color: #fff;
+    height: 2rem;
+    font-weight: 500;
+    font-size: large;
+}
 // navbar
 .nav-bar {
     display: flex;
@@ -11,6 +24,9 @@
 }
 .nav-title {
     font-size: 2rem;
+    span {
+        color: $primary;
+    }
 }
 .logIn-btn {
     width: 5rem;
