@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   searchText: string = '';  //assign value in the search input
   users: any;   // from api
   savedUser;  
-  keyword = 'firstName';
+  keyword = 'firstName';  
   userNotFound = 'user name not found';
 
   constructor(
@@ -44,17 +44,5 @@ export class DashboardComponent implements OnInit {
   // sign out 
   signOut() {
     this.AuthService.SignOut();
-  }
-  selectEvent(item) {
-    // do something with selected item
-  }
-
-  onChangeSearch(val: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
-  }
-  
-  onFocused(e){
-    // do something when input is focused
   }
 }

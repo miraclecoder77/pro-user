@@ -1,7 +1,9 @@
+//primary color
+$primary: cyan;
+
 .layout {
     width: 100%;
     height: 100%;
-    // padding-top: 5%;
     padding: 2.5rem;
 }
 .wrapper {
@@ -15,8 +17,8 @@
     position: absolute;
     box-shadow: 0 0 24px #0000003d;
     border-radius: 0 0 0 2rem;
-    border-bottom: 1px solid cyan;
-    border-left: 1px solid cyan;
+    border-bottom: 1px solid $primary;
+    border-left: 1px solid $primary;
     padding: .5rem 1rem;
     min-width: 20%;
     top: 0;
@@ -55,7 +57,7 @@
 }
 .signOut-btn:hover {
     background: url(../../../assets/images/exit-green.png) no-repeat;
-    color: cyan;
+    color: $primary;
     font-weight: 500;
 }
 
@@ -66,7 +68,7 @@
 }
 //input search field 
 .searchDiv {
-    border: 1px solid cyan;
+    border: 1px solid $primary;
     border-radius: .5rem;
     cursor: text;
     min-height: 2.7rem;
