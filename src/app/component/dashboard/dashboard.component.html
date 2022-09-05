@@ -5,13 +5,34 @@
         <!-- input search field -->
         <div class="searchDiv">
             <img src="../../../assets/images/search-icon.png" alt="search icon">
-            <input class="input-wrapper" 
+            <!-- <input " 
                    type="text" 
-                   [(ngModel)]="searchText" 
+                   
                    placeholder="search by name"
-                   >
+                   > -->
+                   <div class="ng-autocomplete">
+                    <ng-autocomplete 
+                      [data]="users"
+                      class="input-wrapper"
+                      [searchKeyword]="keyword"
+                      placeholder="search user by name"
+                      historyIdentifier="users"
+                      [itemTemplate]="itemTemplate"
+                      [(ngModel)]="searchText" 
+                      [notFoundTemplate]="notFoundTemplate">                                 
+                    </ng-autocomplete>
+                    
+                    <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.firstName"></a>
+                    </ng-template>
+                    
+                    <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="userNotFound"></div>
+                    </ng-template>
+                    </div>
 
         </div> 
+
         <!-- Table data container -->
         <div class="data-Container">
             <div class="table-container">
