@@ -2,36 +2,29 @@
     <div class="wrapper" >
         <!-- header -->
         <h1 class="heading">Users Dashboard</h1>
-        <!-- input search field -->
-        <div class="searchDiv">
-            <img src="../../../assets/images/search-icon.png" alt="search icon">
-            <!-- <input " 
-                   type="text" 
-                   
-                   placeholder="search by name"
-                   > -->
-                   <div class="ng-autocomplete">
-                    <ng-autocomplete 
-                      [data]="users"
-                      class="input-wrapper"
-                      [searchKeyword]="keyword"
-                      placeholder="search user by name"
-                      historyIdentifier="users"
-                      [itemTemplate]="itemTemplate"
-                      [(ngModel)]="searchText" 
-                      [notFoundTemplate]="notFoundTemplate">                                 
-                    </ng-autocomplete>
-                    
-                    <ng-template #itemTemplate let-item>
-                    <a [innerHTML]="item.firstName"></a>
-                    </ng-template>
-                    
-                    <ng-template #notFoundTemplate let-notFound>
-                    <div [innerHTML]="userNotFound"></div>
-                    </ng-template>
-                    </div>
-
-        </div> 
+        <!-- input search field -->         
+        <div class="autocomplete-wrapper">
+            <img src="../../../assets/images/search-icon.png" class="search-icon" alt="search icon">
+            <ng-autocomplete 
+              style="border: none; outline:none;"
+              [data]="users"
+              class="input-wrapper"
+              [searchKeyword]="keyword"
+              placeholder="search user by name"
+              historyIdentifier="users"
+              [itemTemplate]="itemTemplate"
+              [(ngModel)]="searchText" 
+              [notFoundTemplate]="notFoundTemplate">                                 
+            </ng-autocomplete>
+            
+            <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.firstName"></a>
+            </ng-template>
+            
+            <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="userNotFound"></div>
+            </ng-template>
+        </div>
 
         <!-- Table data container -->
         <div class="data-Container">
@@ -40,19 +33,18 @@
                     <thead >
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
-                            <!-- <th>Phone Number</th> -->
+                            <th>Status</th>  
                             <th>User Reference</th>
+                              
                         </tr>
                     </thead>
                     <ng-container *ngFor="let user of users | filter: searchText">
-                        <!-- *ngIf="searchText === '' || user.firstName.match(this.searchText.toLocaleLowerCase() )  " -->
                         <tbody class="table-body"  >
                             <tr>
                                 <td>{{user.firstName}} {{user.lastName}}</td>
-                                <td class="display"> {{user.email}}</td>
+                                <td> {{user.approvalStatus}}</td>
                                 <td>{{user.userReference}}</td>
-                                <!-- <td>{{user.createdOn}}</td> -->
+                                
                             </tr>
                         </tbody>
                     </ng-container>

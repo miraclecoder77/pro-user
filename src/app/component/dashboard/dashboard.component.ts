@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   searchText: string = '';  //assign value in the search input
   users: any;   // from api
-  savedUser;  
+  savedUser;  //get the user detail 
   keyword = 'firstName';  
   userNotFound = 'user name not found';
 
@@ -23,15 +23,14 @@ export class DashboardComponent implements OnInit {
   ) { }  
 
   ngOnInit(): void {
-    //get all users on init
-    this.getUsers();
+    this.getUsers();    //get all users on init
     this.getSavedUser()
   }
 
   //get the user display details
   getSavedUser() {
     this.savedUser = this.AuthService.userData;
-    console.log(this.savedUser);
+    // console.log(this.savedUser);
   }
   //get users from the api
   getUsers() {
