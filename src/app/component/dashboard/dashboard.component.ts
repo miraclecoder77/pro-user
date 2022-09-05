@@ -13,8 +13,8 @@ export class DashboardComponent implements OnInit {
   searchText: string = '';  //assign value in the search input
   users: any;   // from api
   savedUser;  
-  config;
-  item;
+  keyword = 'firstName';
+  userNotFound = 'user name not found';
 
   constructor(
     private api: ApiService,  //injects the api service
@@ -45,22 +45,16 @@ export class DashboardComponent implements OnInit {
   signOut() {
     this.AuthService.SignOut();
   }
+  selectEvent(item) {
+    // do something with selected item
+  }
 
-  // onSearchTextEntered(searchValue: string) {
-  //   this.searchText = searchValue;  
-  // }
-
-  // search() {
-  //   if(this.searchText === '') {
-  //     this.ngOnInit();
-  //   } else {
-  //     this.users = this.users.filter(
-  //       res => {
-  //         console.log(res.firstName.input.includes(this.searchText))
-  //         return res.firstName.toLowerCase().indexOf(this.searchText.toLowerCase());
-  //       }
-  //     )
-  //   }
-  // }
-
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  
+  onFocused(e){
+    // do something when input is focused
+  }
 }

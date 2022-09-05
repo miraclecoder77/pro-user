@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeroPageComponent } from './component/hero-page/hero-page.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // Firebase services + environment module
 import { AngularFireModule } from '@angular/fire/compat';
@@ -12,10 +14,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
-import { HeroPageComponent } from './component/hero-page/hero-page.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { AutocompleteModule } from 'ng2-input-autocomplete';
-
 
 
 
@@ -30,7 +28,6 @@ import { AutocompleteModule } from 'ng2-input-autocomplete';
     AppRoutingModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    AutocompleteModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
